@@ -2,10 +2,12 @@ import React from "react";
 import Track from "./Track";
 import '../styles/TrackList.css'
 
-function TrackList({tracks}) {
+function TrackList({tracksArr}) {
+
+
     return (
         <div className="result-tracks">
-            {tracks.map((track) => <Track artist={track.artist} title={track.title} />)}
+            {tracksArr.map((track) => <Track trackObject={track}/>)}
         </div>
     )
 }

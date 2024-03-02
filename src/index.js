@@ -4,12 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { tracks } from "./components/SongsData"
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App tracks={tracks} />
+    <App />
   </React.StrictMode>
 );
 

@@ -1,14 +1,15 @@
 import React from "react";
 import '../styles/Track.css';
+import AddOrRemoveButton from "./AddOrRemoveButton";
 
-function Track(props) {
+function Track({trackObject}) {
     return (
         <div className="track-container">  
             <div>
-                <h3>{props.title}</h3>
-                <p>{props.artist}</p>
+                <h3>{trackObject.title}</h3>
+                <p>{trackObject.artist} | {trackObject.album}</p>
             </div>
-            <button>Add</button>
+            <AddOrRemoveButton add={true} />
         </div>
     )
 }
