@@ -1,0 +1,9 @@
+.track-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.track-container:hover {
+    background-color: seashell;
+}

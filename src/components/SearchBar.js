@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/SearchBar.css"
 
 function SearchBar() {
 
@@ -8,7 +9,7 @@ function SearchBar() {
 
     return (
         <>
-            <form>
+            <form className="search-form">
                 <input name="search" type="text" />
                 <br />
                 <input onClick={handleSubmit} type="submit" value="Search"/>

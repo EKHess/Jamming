@@ -1,4 +1,4 @@
-const tracks = [
+export const tracks = [
     {
         title: "Take On Me",
         artist: "A-ha",
@@ -10,7 +10,17 @@ const tracks = [
     {
         title: "You Make My Dreams (Come True)",
         artist: "Daryl Hall & John Oates",
-    }
+    },
+    {
+        title: "I Hate Myself for Loving You",
+        artist: "Joan Jett & the Blackhearts",
+    },
+    {
+        title: "Should I Stay or Should I Go - Remastered",
+        artist: "The Clash"
+    },
+    {
+        title: "All My Heros - Radio Edit",
+        artist: "Naeleck, Sarah Rebecca",
+    },
 ]
-
-export default tracks;

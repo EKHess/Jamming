@@ -1,0 +1,4 @@
+.result-tracks{
+    overflow: auto;
+    max-height: 60vh;
+}
