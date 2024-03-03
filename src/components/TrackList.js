@@ -1,13 +1,11 @@
 import React from "react";
-import Track from "./Track";
+import TrackResult from "./TrackResult";
 import '../styles/TrackList.css'
 
 function TrackList({tracksArr}) {
-
-
     return (
         <div className="result-tracks">
-            {tracksArr.map((track) => <Track trackObject={track}/>)}
+            {tracksArr.map((track) => <TrackResult trackObject={track}/>)}
         </div>
     )
 }
