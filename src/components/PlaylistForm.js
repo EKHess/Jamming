@@ -3,7 +3,7 @@ import Track from "./TrackResult";
 import '../styles/Playlist.css';
 
 
-function Playlist({addTrack}) {
+function PlaylistForm() {
     return (
         <>
             <form>
@@ -12,11 +12,9 @@ function Playlist({addTrack}) {
                     <br />
                     <input type="submit" value="Save to Spotify"/>
                 </div>
-
-
             </form>
         </>
     )
 }
 
-export default Playlist;
+export default PlaylistForm;
