@@ -1,6 +1,5 @@
 import React from "react";
 import '../styles/Track.css';
-import AddButton from "./AddButton";
 
 function TrackResult({trackObject, addTrack}) {
 

@@ -1,7 +1,7 @@
 import './App.css';
 import SearchBar from "./components/SearchBar";
 import PlaylistForm from "./components/PlaylistForm";
-import Track from "./components/TrackResult";
+import PlaylistTrack from './components/PlaylistTrack';
 import React, { useState } from "react";
 import tracks from './SongsData';
 import TrackResult from './components/TrackResult';
@@ -14,6 +14,7 @@ function App() {
 
   const addTrackToPlaylist = (trackObj) => {
     setPlaylist((prevPlaylist) => [...prevPlaylist, trackObj]);
+    // console.log(trackObj);
   }
 
   const removeTrackFromPlaylist = (trackObjIdToRemove) => {
@@ -37,7 +38,7 @@ function App() {
         <div>
           <PlaylistForm />
           <ul>
-            {playlist.map((track) => <li><Track key={track.id} removeTrack={removeTrackFromPlaylist} /></li>)}
+            {playlist.map((track) => <li><PlaylistTrack trackObject={track} removeTrack={removeTrackFromPlaylist} /></li>)}
           </ul>
         </div>
       </section>
