@@ -12,3 +12,11 @@
   display: flex;
   justify-content: space-around;
 }
+
+.result-tracks {
+  width: 350px;
+}
+
+.playlist-tracks {
+  width: 350px;
+}

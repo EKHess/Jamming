@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Playlist.css';
+import '../styles/PlaylistForm.css';
 
 
 function PlaylistForm() {

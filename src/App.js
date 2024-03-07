@@ -37,9 +37,9 @@ function App() {
         </div>
         <div>
           <PlaylistForm />
-          <ul>
-            {playlist.map((track) => <li><PlaylistTrack trackObject={track} removeTrack={removeTrackFromPlaylist} /></li>)}
-          </ul>
+          <div className="playlist-tracks">
+            {playlist.map((track) =><PlaylistTrack trackObject={track} removeTrack={removeTrackFromPlaylist} />)}
+          </div>
         </div>
       </section>
     </div>

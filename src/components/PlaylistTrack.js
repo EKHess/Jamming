@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Track.css';
+import '../styles/Track.css'
 
 function PlaylistTrack({trackObject, removeTrack}) {
 
