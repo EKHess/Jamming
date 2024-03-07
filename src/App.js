@@ -13,8 +13,13 @@ function App() {
   const [playlist, setPlaylist] = useState([]);
 
   const addTrackToPlaylist = (trackObj) => {
-    setPlaylist((prevPlaylist) => [...prevPlaylist, trackObj]);
-    // console.log(trackObj);
+    // To prevent duplicates from being added to our playlist, check each item in the playlist to ensure that trackObj.id does not match any id's of tracks currently in our playlist 
+    let trackObjAlreadyExists = false;
+    playlist.forEach((track) => trackObj.id === track.id ? trackObjAlreadyExists = true : trackObjAlreadyExists);
+
+    if (!trackObjAlreadyExists) {
+      setPlaylist((prevPlaylist) => [...prevPlaylist, trackObj]);
+    }
   }
 
   const removeTrackFromPlaylist = (trackObjIdToRemove) => {
