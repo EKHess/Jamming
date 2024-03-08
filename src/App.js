@@ -10,7 +10,6 @@ import TrackResult from './components/TrackResult';
 const CLIENT_ID = 'a3c530b21aa84e3aa8da93ed77e04ce2';
 const CLIENT_SECRET = '5c54528389a9445e8fa2a29323c1de52';
 
-
 function App() {
   const [accessToken, setAccessToken] = useState('');
 

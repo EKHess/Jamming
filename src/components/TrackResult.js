@@ -9,6 +9,7 @@ function TrackResult({trackObject, addTrack}) {
             artist: trackObject.artist,
             album: trackObject.album,
             id: trackObject.id,
+            uri: trackObject.uri,
         };
 
         addTrack(newTrack);
