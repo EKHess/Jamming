@@ -53,7 +53,7 @@ function App() {
     <div className="App">
       <h1 className="header-title">Jamming</h1>
       <div className="search-bar">
-        <SearchBar />
+        <SearchBar accessToken={accessToken} />
       </div>
 
       <section className='container'>

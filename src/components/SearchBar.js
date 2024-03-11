@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/SearchBar.css"
 
-function SearchBar() {
+function SearchBar(props) {
 
     const [searchInput, setSearchInput] = useState('');
 
@@ -11,10 +11,29 @@ function SearchBar() {
 
     // Search Function
     async function search() {
+        // console.log(props.accessToken);
         console.log("Searching for " + searchInput);
 
         // Get request using the SearchBar to get the ID of the artist we've searched for
-        // const artistID = await fetch('https://api.spotify.com/v1/artists/')
+        const searchParams = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + props.accessToken
+            },
+
+        }
+        let artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParams)
+            .then(response => response.json())
+            .then(data => { 
+                return data.artists.items[0].id;
+            })
+
+        // console.log(artistID);
+        
+        let topTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks', searchParams)
+            .then(response => response.json())
+            .then(data => console.log(data))
 
         // Get request with Artist ID to return all the songs by that artist
 
