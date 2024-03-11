@@ -10,6 +10,7 @@ function TrackResult({trackObject, addTrack}) {
             album: trackObject.album,
             id: trackObject.id,
             uri: trackObject.uri,
+            img: trackObject.img,
         };
 
         addTrack(newTrack);
@@ -17,6 +18,7 @@ function TrackResult({trackObject, addTrack}) {
 
     return (
         <div className="track-container">  
+            <img src={trackObject.img} className="album-img"/>
             <div>
                 <h3>{trackObject.title}</h3>
                 <p>{trackObject.artist} | {trackObject.album}</p>

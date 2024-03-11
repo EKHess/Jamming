@@ -13,6 +13,7 @@ const CLIENT_SECRET = '5c54528389a9445e8fa2a29323c1de52';
 function App() {
   const [accessToken, setAccessToken] = useState('');
 
+
   // GET USER'S ACCESS TOKEN 
   // The following code only runs the first time App renders.
   // The following is a translation of the cURL code provided in the Spotify API Documentation

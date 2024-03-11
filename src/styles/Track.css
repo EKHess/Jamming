@@ -1,6 +1,7 @@
 .track-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 10px;
 
     font-size: 10px;
@@ -8,4 +9,9 @@
 
 .track-container:hover {
     background-color: seashell;
+}
+
+.album-img {
+    width: 55px;
+    height: 55px;
 }
