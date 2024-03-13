@@ -5,17 +5,19 @@ import PlaylistTrack from './components/PlaylistTrack';
 import React, { useState, useEffect } from "react";
 import tracks from './SongsData';
 import TrackResult from './components/TrackResult';
-import { toTrackResultObj } from './utilities/utilities';
+import { toTrackResultObj } from './utilities';
 
 // Information for Spotify API
 const CLIENT_ID = 'a3c530b21aa84e3aa8da93ed77e04ce2';
 const CLIENT_SECRET = '5c54528389a9445e8fa2a29323c1de52';
 
+let topTracks = [];
+
 function App() {
   const [accessToken, setAccessToken] = useState('');
   const [searchInput, setSearchInput] = useState('');
   // const [topTracks, setTopTracks] = useState([]);
-  let topTracks = [];
+  
 
   // GET USER'S ACCESS TOKEN 
   // The following code only runs the first time App renders.
@@ -78,8 +80,11 @@ function App() {
     // Save the returned tracks to the global App.js variable topTracks
     topTracks = returnedTracks.map((track) => toTrackResultObj(track))
 
-    console.log('Top Tracks:');
+    console.log('Top Tracks Formatted:');
     console.log(topTracks);
+
+    console.log('Compared to my mock data:');
+    console.log(tracks);
 
 
   }
@@ -113,7 +118,7 @@ function App() {
         <div>
           <h2>Results</h2>
             <div className="result-tracks">
-              {tracks.map((track) => <TrackResult addTrack={addTrackToPlaylist} trackObject={track} key={track.id}/>)}
+              {topTracks.map((track) => <TrackResult addTrack={addTrackToPlaylist} trackObject={track} key={track.id}/>)}
             </div>
         </div>
         <div>
