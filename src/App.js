@@ -78,7 +78,9 @@ function App() {
     console.log(`Array? ${Array.isArray(returnedTracks)}`) // true
 
     // Set the state of topTracks to the array formatted just like our mock data
+    console.log('Setting state and mapping data to desired format...')
     setTopTracks(returnedTracks.map((track) => toTrackResultObj(track)));
+    console.log('Search complete successfully');
 
 
   }

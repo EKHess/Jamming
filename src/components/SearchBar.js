@@ -4,6 +4,10 @@ import "../styles/SearchBar.css"
 function SearchBar(props) {
     const handleTextChange = (event) => {
         props.setSearchInput(event.target.value);
+
+        if (event.key == 'Enter') {
+            props.search();
+        }
     }
 
     
@@ -15,7 +19,7 @@ function SearchBar(props) {
     return (
         <>
             <form className="search-form">
-                <input name="search" type="text" onChange={handleTextChange} value={props.searchInput} />
+                <input name="search" type="text" onChange={handleTextChange}  value={props.searchInput} placeholder="Enter artist name" />
                 <br />
                 <input onClick={handleSubmit} type="submit" value="Search"/>
             </form>
