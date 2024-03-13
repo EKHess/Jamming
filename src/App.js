@@ -11,12 +11,12 @@ import { toTrackResultObj } from './utilities';
 const CLIENT_ID = 'a3c530b21aa84e3aa8da93ed77e04ce2';
 const CLIENT_SECRET = '5c54528389a9445e8fa2a29323c1de52';
 
-let topTracks = [];
+// let topTracks = [];
 
 function App() {
   const [accessToken, setAccessToken] = useState('');
   const [searchInput, setSearchInput] = useState('');
-  // const [topTracks, setTopTracks] = useState([]);
+  const [topTracks, setTopTracks] = useState([]);
   
 
   // GET USER'S ACCESS TOKEN 
@@ -77,14 +77,8 @@ function App() {
     console.log(returnedTracks);
     console.log(`Array? ${Array.isArray(returnedTracks)}`) // true
 
-    // Save the returned tracks to the global App.js variable topTracks
-    topTracks = returnedTracks.map((track) => toTrackResultObj(track))
-
-    console.log('Top Tracks Formatted:');
-    console.log(topTracks);
-
-    console.log('Compared to my mock data:');
-    console.log(tracks);
+    // Set the state of topTracks to the array formatted just like our mock data
+    setTopTracks(returnedTracks.map((track) => toTrackResultObj(track)));
 
 
   }
