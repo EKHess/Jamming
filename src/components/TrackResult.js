@@ -18,12 +18,14 @@ function TrackResult({trackObject, addTrack}) {
 
     return (
         <div className="track-container">  
-            <img src={trackObject.img} className="album-img"/>
-            <div>
-                <h3>{trackObject.title}</h3>
-                <p>{trackObject.artist} | {trackObject.album}</p>
+            <div className="text-and-image-container">
+                <img src={trackObject.img} className="album-img" alt="Album artwork"/>
+                <div>
+                    <h3>{trackObject.title}</h3>
+                    <p>{trackObject.artist} | {trackObject.album}</p>
+                </div>
             </div>
-            <button onClick={handleAdd}>Add</button>
+            <button onClick={handleAdd}>+</button>
         </div>
     )
 }
