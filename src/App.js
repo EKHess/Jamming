@@ -68,19 +68,19 @@ function App() {
     let returnedTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks', searchParams)
         .then(response => response.json())
         .then(data => {
-          // console.log('Returned Data:');
-          // console.log(data.tracks);
-          return data.tracks;
-        })
-    
-    console.log('Returned Tracks:');
-    console.log(returnedTracks);
-    console.log(`Array? ${Array.isArray(returnedTracks)}`) // true
+          console.log('Returned Data:');
+          console.log(data.tracks);
 
-    // Set the state of topTracks to the array formatted just like our mock data
-    console.log('Setting state and mapping data to desired format...')
-    setTopTracks(returnedTracks.map((track) => toTrackResultObj(track)));
-    console.log('Search complete successfully');
+          // Set the state of topTracks to the array formatted just like our mock data
+          console.log('Setting state and mapping data to desired format...')
+          setTopTracks(data.tracks.map((track) => toTrackResultObj(track)));
+          
+          console.log('Search complete successfully');
+        })
+
+    
+    
+
 
 
   }
