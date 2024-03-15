@@ -17,6 +17,7 @@ function App() {
   const [accessToken, setAccessToken] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [topTracks, setTopTracks] = useState([]);
+  const [playlistTitle, setPlaylistTitle] = useState('');
   
 
   // GET USER'S ACCESS TOKEN 
@@ -77,12 +78,25 @@ function App() {
           
           console.log('Search complete successfully');
         })
+  }
 
-    
-    
+  // CREATE PLAYLIST FEATURE
+  async function getUserName() {
+    console.log('Acquiring user ID...');
 
+    const userIDParams = {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + accessToken,
+      },
+    }
+    let userID = await fetch('https://api.spotify.com/v1/me', userIDParams)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
 
-
+  async function createPlaylist() {
+    getUserName();
   }
 
 
@@ -118,7 +132,7 @@ function App() {
             </div>
         </div>
         <div>
-          <PlaylistForm />
+          <PlaylistForm createPlaylist={createPlaylist} playlistTitle={playlistTitle} setPlaylistTitle={setPlaylistTitle}/>
           <div className="playlist-tracks">
             {playlist.map((track) =><PlaylistTrack trackObject={track} removeTrack={removeTrackFromPlaylist} key={track.id} />)}
           </div>

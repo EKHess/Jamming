@@ -2,19 +2,25 @@ import React, { useState } from "react";
 import '../styles/PlaylistForm.css';
 
 
-function PlaylistForm() {
-    const [playlistTitle, setPlaylistTitle] = useState('');
+function PlaylistForm(props) {
+    
     const handleChange = (event) => {
-        setPlaylistTitle(event.target.value);
+        props.setPlaylistTitle(event.target.value);
+    }
+
+    const handleClick = (event) => {
+        event.preventDefault();
+        props.createPlaylist();
     }
 
     return (
         <>
             <form>
                 <div className="playlist-title">
-                    <input name="playlistName" type="text" onChange={handleChange} value={playlistTitle} />
+                    <input name="playlistName" type="text" onChange={handleChange} value={props.playlistTitle} />
                     <br />
-                    <input type="submit" value="Save to Spotify"/>
+                    <input type="submit" value="Save to Spotify" onClick={handleClick}/>
+                    <p>{props.playlistTitle}</p>
                 </div>
             </form>
         </>
