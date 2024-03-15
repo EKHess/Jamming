@@ -27,74 +27,69 @@ const Spotify = {
     },
 
     async getUserName() {
-        if (!accessToken) {
+        if(!accessToken) {
             return Promise.reject(new Error('Access token is missing'));
         }
-
         const nameEndpoint = 'https://api.spotify.com/v1/me';
-        const nameParams = {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            }
-        }
-        userID = await fetch(nameEndpoint, nameParams)
-            .then(response => {
-                if (response.status === 200) {
-                    return response.json();
-                } else {
-                    throw new Error('Failed to fetch user data')
-                }
-            })
-            .then(jsonResponse => {
-                const userName = jsonResponse.display_name;
-                userID = jsonResponse.id;
-                // console.log(userID);
-                return userName;
-            })
-    },
-
-    async searchTracks(searchInput) {
-        const searchEndpoint = `https://api.spotify.com/v1/search?q=${searchInput}&type=track`
-        
-        return fetch(searchEndpoint, {
+        return fetch(nameEndpoint, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
             }
         })
-        .then(response => response.json())
+        .then((response) => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error('Failed to fetch user data');
+             }
+        })
         .then((data) => {
-            console.log(data);
+            const userName = data.display_name;
+            userID = data.id;
+            return userName;         
         });
     },
 
-    async createPlaylist(playlistName) {
-        const createListURL = `https://api.spotify.com/v1/users/${userID}/playlists`;
-        const createListParams = {
-            method: 'POST',
+    async searchTracks(searchInput) {
+        console.log("Searching for " + searchInput);
+
+        // Get request using the SearchBar to get the ID of the artist we've searched for
+        const searchParams = {
+            method: 'GET',
             headers: {
-                'Authorization': `Bearer ${accessToken}`,
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
             },
-            data: {
-                'name': playlistName,
-                'description': 'A playlist created by the application Jamming, by Eric Hess',
-                'public': false,
-            }
+
         }
 
-        return fetch(createListURL, createListParams)
-            .then(response => {
-                if (response.status === 201) {
-                    return response.json()
-                } else {
-                    throw new Error('Failed to create playlist')
-                }
+        console.log('Aquiring artist ID...');
+        let artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParams)
+            .then(response => response.json())
+            .then(data => { 
+                return data.artists.items[0].id;
             })
-            .then(jsonResponse => {
-                console.log(jsonResponse);
-            })
+
+        console.log('Artist ID: ' + artistID);
+        
+        console.log('Querying Spotify API...');
+        // Get request with Artist ID to return top tracks by that artist
+        let returnedTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks', searchParams)
+            .then(response => response.json())
+            .then((data) => {
+            console.log('Returned Data:');
+            console.log(data.tracks);
+            
+            const trackObjs = data.tracks.map((track) => toTrackResultObj(track));
+            console.log(trackObjs);
+
+            return trackObjs;
+        })
+    },
+
+    async createPlaylist(playlistName) {
+    
     },
 
 

@@ -13,7 +13,7 @@ function SearchBar(props) {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.search();
+        props.search(props.searchInput);
     }
 
     return (
