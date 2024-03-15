@@ -1,3 +1,5 @@
+import { toTrackResultObj } from "./utilities";
+
 const CLIENT_ID = 'a3c530b21aa84e3aa8da93ed77e04ce2';
 const REDIRECT_URI = 'http://localhost:3000/';
 
@@ -47,11 +49,53 @@ const Spotify = {
             .then(jsonResponse => {
                 const userName = jsonResponse.display_name;
                 userID = jsonResponse.id;
+                // console.log(userID);
                 return userName;
             })
     },
 
-    
+    async searchTracks(searchInput) {
+        const searchEndpoint = `https://api.spotify.com/v1/search?q=${searchInput}&type=track`
+        
+        return fetch(searchEndpoint, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+        })
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data);
+        });
+    },
+
+    async createPlaylist(playlistName) {
+        const createListURL = `https://api.spotify.com/v1/users/${userID}/playlists`;
+        const createListParams = {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            },
+            data: {
+                'name': playlistName,
+                'description': 'A playlist created by the application Jamming, by Eric Hess',
+                'public': false,
+            }
+        }
+
+        return fetch(createListURL, createListParams)
+            .then(response => {
+                if (response.status === 201) {
+                    return response.json()
+                } else {
+                    throw new Error('Failed to create playlist')
+                }
+            })
+            .then(jsonResponse => {
+                console.log(jsonResponse);
+            })
+    },
 
 
 }

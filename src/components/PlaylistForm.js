@@ -10,7 +10,7 @@ function PlaylistForm(props) {
 
     const handleClick = (event) => {
         event.preventDefault();
-        props.createPlaylist();
+        // props.savePlaylist();
     }
 
     return (

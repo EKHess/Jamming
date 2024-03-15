@@ -1,4 +1,4 @@
-import { generateId } from "./utilities";
+import { generateId } from "./utilities/utilities";
 
 const tracks = [
     {
