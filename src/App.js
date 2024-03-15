@@ -5,7 +5,7 @@ import PlaylistTrack from './components/PlaylistTrack';
 import React, { useState, useEffect } from "react";
 import tracks from './SongsData';
 import TrackResult from './components/TrackResult';
-import { toTrackResultObj } from './utilities';
+import { toTrackResultObj } from './utilities/utilities';
 
 // Information for Spotify API
 const CLIENT_ID = 'a3c530b21aa84e3aa8da93ed77e04ce2';
@@ -119,6 +119,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* <button onClick={handleLogin}>Login to Spotify</button> */}
       <h1 className="header-title">Jamming</h1>
       <div className="search-bar">
         <SearchBar search={search} searchInput={searchInput} setSearchInput={setSearchInput} />
