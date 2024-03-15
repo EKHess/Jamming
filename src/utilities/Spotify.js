@@ -18,12 +18,40 @@ const Spotify = {
         const authenticated = window.location.href.match(/access_token=([^&]*)/);  // Returns array, access_token at index 1
         if (authenticated) {
             accessToken = authenticated[1];
-            alert(`Successfully found access token for this user: ${accessToken}`);
             return true;
         } else {
             return false;
         }
     },
+
+    async getUserName() {
+        if (!accessToken) {
+            return Promise.reject(new Error('Access token is missing'));
+        }
+
+        const nameEndpoint = 'https://api.spotify.com/v1/me';
+        const nameParams = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        }
+        userID = await fetch(nameEndpoint, nameParams)
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json();
+                } else {
+                    throw new Error('Failed to fetch user data')
+                }
+            })
+            .then(jsonResponse => {
+                const userName = jsonResponse.display_name;
+                userID = jsonResponse.id;
+                return userName;
+            })
+    },
+
+    
 
 
 }
