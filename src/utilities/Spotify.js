@@ -75,7 +75,8 @@ const Spotify = {
         
         console.log('Querying Spotify API...');
         // Get request with Artist ID to return top tracks by that artist
-        let returnedTracks = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks', searchParams)
+        // IMPORTANT NOTE: If you want to return a value from a fetch, you must write "return fetch(...)"
+        return fetch('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks', searchParams)
             .then(response => response.json())
             .then((data) => {
             console.log('Returned Data:');

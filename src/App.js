@@ -32,7 +32,7 @@ function App() {
   // Search Function
   async function search() {
     Spotify.searchTracks(searchInput)
-      .then(returnedTracks => console.log(returnedTracks))
+      .then(returnedTracks => setTopTracks(returnedTracks))
   }
 
   const addTrackToPlaylist = (trackObj) => {
