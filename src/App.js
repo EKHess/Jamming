@@ -17,8 +17,8 @@ function App() {
     const authenticated = Spotify.checkAuth();
     if (authenticated) {
       Spotify.getUserName()
-        .then((fetchName) => {
-          setUserName(fetchName);
+        .then((fetchedUserName) => {
+          setUserName(fetchedUserName);
           setLogged(authenticated);
         })
         .catch((error) => {
