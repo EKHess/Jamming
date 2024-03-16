@@ -89,8 +89,28 @@ const Spotify = {
         })
     },
 
-    async createPlaylist(playlistName) {
-    
+    async createPlaylist(playlistName, urisList) {
+        const createListURL = `https://api.spotify.com/v1/users/${userID}/playlists`;
+        const createListParams = {
+            method: 'POST',
+            headers: {
+                'Authentication': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            },
+            data: {
+                'name': playlistName,
+                'description': 'A playlist created by Jamming, a web app by Eric Hess.',
+                'public': false,
+            },
+        }
+        return fetch(createListURL, createListParams)
+            .then(response => {
+                if (response.status === 201) {
+                    console.log(response);
+                } else {
+                    throw new Error(`Failed to create playlist for user: ${userID}`)
+                }
+            })
     },
 
 

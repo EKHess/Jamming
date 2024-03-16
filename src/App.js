@@ -12,6 +12,7 @@ function App() {
   const [userName, setUserName] = useState('');
   const [logged, setLogged] = useState(false);
   const [playlist, setPlaylist] = useState([]);
+  const [playlistTitle, setPlaylistTitle] = useState('');
 
   useEffect(() => {
     const authenticated = Spotify.checkAuth();
@@ -49,6 +50,16 @@ function App() {
     setPlaylist((prevPlaylist) => prevPlaylist.filter((trackObj) => trackObj.id !== trackObjIdToRemove));
   }
 
+  const savePlaylist = (playlistTitle) => {
+    if (playlist.length === 0) {
+      return;
+    } else {
+      const urisArray = playlist.map(track => track.uri);
+      console.log('Tracks to be added to user\'s playlist:');
+      console.log(urisArray)
+    }
+  }
+
   if (!logged) {
     return <button onClick={Spotify.getAuth}>Sign in to Spotify</button>
   } else {
@@ -68,7 +79,7 @@ function App() {
               </div>
           </div>
           <div>
-            <PlaylistForm />
+            <PlaylistForm savePlaylist={savePlaylist} playlistTitle={playlistTitle} setPlaylistTitle={setPlaylistTitle} />
             <div className="playlist-tracks">
               {playlist.map((track) =><PlaylistTrack trackObject={track} removeTrack={removeTrackFromPlaylist} key={track.id} />)}
             </div>
