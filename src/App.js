@@ -6,6 +6,8 @@ import React, { useState, useEffect } from "react";
 import TrackResult from './components/TrackResult';
 import Spotify from './utilities/Spotify';
 
+const spotifyTimeout = 10; // seconds
+
 function App() {
   const [searchInput, setSearchInput] = useState('');
   const [topTracks, setTopTracks] = useState([]);
@@ -14,6 +16,7 @@ function App() {
   const [playlist, setPlaylist] = useState([]);
   const [playlistTitle, setPlaylistTitle] = useState('');
 
+  // This side effect checks authentication of the user using Spotify's login page on App's first render
   useEffect(() => {
     const authenticated = Spotify.checkAuth();
     if (authenticated) {
@@ -28,6 +31,18 @@ function App() {
     } else {
       console.log('Login failed');
     }
+  }, [])
+
+  // This side effect times out the window after 1 hour, the duration for which a Spotify access token is valid
+  useEffect(() => {
+    setTimeout(() => {
+      // alert('Session has expired. Please refresh the page.');
+      if (window.confirm('Session has timed out. Please press OK to return to the login page.')) {
+        window.location.href = 'http://localhost:3000/';
+      } else {
+        return;
+      }
+    }, spotifyTimeout * 1000);
   }, [])
 
   // Search Function
