@@ -6,6 +6,7 @@ function PlaylistForm(props) {
     
     const handleChange = (event) => {
         props.setPlaylistTitle(event.target.value);
+        console.log(props.playlistTitle);
     }
 
     const handleClick = (event) => {

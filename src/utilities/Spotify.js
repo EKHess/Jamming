@@ -20,6 +20,7 @@ const Spotify = {
         const authenticated = window.location.href.match(/access_token=([^&]*)/);  // Returns array, access_token at index 1
         if (authenticated) {
             accessToken = authenticated[1];
+            // console.log(accessToken);
             return true;
         } else {
             return false;
@@ -89,30 +90,62 @@ const Spotify = {
         })
     },
 
-    async createPlaylist(playlistName, urisList) {
-        const createListURL = `https://api.spotify.com/v1/users/${userID}/playlists`;
-        const createListParams = {
+    // async createPlaylist(playlistName) {
+    //     const createListURL = `https://api.spotify.com/v1/users/${userID}/playlists`;
+    //     const createListParams = {
+    //         method: 'POST',
+    //         headers: {
+    //             'Authorization': `Bearer ${accessToken}`,
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: {
+    //             'name': playlistName,
+    //         },
+    //     }
+    //     return fetch(createListURL, createListParams)
+    //         .then(response => {
+    //             if (response.status === 201) {
+    //                 return response.json();
+    //             } else {
+    //                 throw new Error(`Failed to create playlist for user: ${userID}`)
+    //             }
+    //         })
+    // },
+
+
+    // The following cURL script worked:
+    /*
+
+        curl --request POST \
+          --url https://api.spotify.com/v1/users/fastfingers777/playlists \
+          --header 'Authorization: Bearer ______' \
+          --header 'Content-Type: application/json' \
+          --data '{
+        "name": "Jamming Test Playlist",
+        "description": "Playlist created using cURL in terminal",
+        "public": true
+    }'
+
+    */
+
+    createPlaylist(nameOfPlaylistToSave) {
+       return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
             method: 'POST',
             headers: {
-                'Authentication': `Bearer ${accessToken}`,
-                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`, 
+                'Content-Type': 'application/json'
             },
-            data: {
-                'name': playlistName,
-                'description': 'A playlist created by Jamming, a web app by Eric Hess.',
-                'public': false,
-            },
-        }
-        return fetch(createListURL, createListParams)
-            .then(response => {
-                if (response.status === 201) {
-                    console.log(response);
-                } else {
-                    throw new Error(`Failed to create playlist for user: ${userID}`)
-                }
+            body: JSON.stringify({
+                name: nameOfPlaylistToSave,
+                description: 'Playlist created by Jamming, a Web App written by Eric Hess for a Codecademy Project',
+                public: true
             })
+        })
     },
 
+    addSongsToPlaylist(uriList) {
+
+    },
 
 }
 

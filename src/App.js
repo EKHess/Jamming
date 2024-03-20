@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import TrackResult from './components/TrackResult';
 import Spotify from './utilities/Spotify';
 
-const spotifyTimeout = 10; // seconds
+const spotifyTimeout = 3600; // seconds
 
 function App() {
   const [searchInput, setSearchInput] = useState('');
@@ -65,15 +65,20 @@ function App() {
     setPlaylist((prevPlaylist) => prevPlaylist.filter((trackObj) => trackObj.id !== trackObjIdToRemove));
   }
 
-  const savePlaylist = (playlistTitle) => {
+  const savePlaylist = () => {
     if (playlist.length === 0) {
       return;
     } else {
       const urisArray = playlist.map(track => track.uri);
       console.log('Tracks to be added to user\'s playlist:');
-      console.log(urisArray)
+      console.log(urisArray);
+      console.log(`Playlist title from input: ${playlistTitle}`)
+      Spotify.createPlaylist(playlistTitle)
+        .then(response => console.log(response))
     }
   }
+
+
 
   if (!logged) {
     return <button onClick={Spotify.getAuth}>Sign in to Spotify</button>
