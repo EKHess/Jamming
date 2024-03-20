@@ -6,7 +6,7 @@ function PlaylistForm(props) {
     
     const handleChange = (event) => {
         props.setPlaylistTitle(event.target.value);
-        console.log(props.playlistTitle);
+        // console.log(props.playlistTitle);
     }
 
     const handleClick = (event) => {
@@ -21,7 +21,6 @@ function PlaylistForm(props) {
                     <input name="playlistName" type="text" onChange={handleChange} value={props.playlistTitle} />
                     <br />
                     <input type="submit" value="Save to Spotify" onClick={handleClick}/>
-                    <p>{props.playlistTitle}</p>
                 </div>
             </form>
         </>

@@ -74,7 +74,7 @@ function App() {
       console.log(urisArray);
       console.log(`Playlist title from input: ${playlistTitle}`)
       Spotify.createPlaylist(playlistTitle)
-        .then(response => console.log(response))
+        .then(playlistID => Spotify.addSongsToPlaylist(playlistID, urisArray))
     }
   }
 

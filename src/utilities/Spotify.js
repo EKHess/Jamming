@@ -90,46 +90,9 @@ const Spotify = {
         })
     },
 
-    // async createPlaylist(playlistName) {
-    //     const createListURL = `https://api.spotify.com/v1/users/${userID}/playlists`;
-    //     const createListParams = {
-    //         method: 'POST',
-    //         headers: {
-    //             'Authorization': `Bearer ${accessToken}`,
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: {
-    //             'name': playlistName,
-    //         },
-    //     }
-    //     return fetch(createListURL, createListParams)
-    //         .then(response => {
-    //             if (response.status === 201) {
-    //                 return response.json();
-    //             } else {
-    //                 throw new Error(`Failed to create playlist for user: ${userID}`)
-    //             }
-    //         })
-    // },
-
-
-    // The following cURL script worked:
-    /*
-
-        curl --request POST \
-          --url https://api.spotify.com/v1/users/fastfingers777/playlists \
-          --header 'Authorization: Bearer ______' \
-          --header 'Content-Type: application/json' \
-          --data '{
-        "name": "Jamming Test Playlist",
-        "description": "Playlist created using cURL in terminal",
-        "public": true
-    }'
-
-    */
-
-    createPlaylist(nameOfPlaylistToSave) {
-       return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
+    async createPlaylist(nameOfPlaylistToSave) {
+       const createListEndpoint = `https://api.spotify.com/v1/users/${userID}/playlists`;
+       const createListParams = {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${accessToken}`, 
@@ -140,11 +103,29 @@ const Spotify = {
                 description: 'Playlist created by Jamming, a Web App written by Eric Hess for a Codecademy Project',
                 public: true
             })
-        })
+       }
+       return fetch(createListEndpoint, createListParams)
+            .then(response => response.json())
+            .then(jsonReponse => {return jsonReponse.id})
     },
 
-    addSongsToPlaylist(uriList) {
+    async addSongsToPlaylist(playlistID, uriList) {
+        const addSongsEndpoint = `https://api.spotify.com/v1/playlists/${playlistID}/tracks`;
+        const addSongsParams = {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`, 
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                uris: uriList,
+                position: 0,
+            })
+       }
 
+       return fetch(addSongsEndpoint, addSongsParams)
+        .then(response => response.json())
+        .then(jsonResponse => console.log(jsonResponse))
     },
 
 }
