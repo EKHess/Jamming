@@ -81,7 +81,33 @@ function App() {
 
 
   if (!logged) {
-    return <button onClick={Spotify.getAuth}>Sign in to Spotify</button>
+    return (
+      <div className='page-container'>
+        <div className='nav-container'>
+          <nav className='nav-section'>
+            <div className='header-info'>
+              <p className='app-name-header'>Ja<span className='accent-text'>mm</span>ing</p>
+              <p className='author-name'>by Eric Hess</p>
+            </div>
+            <ul>
+              <li><a href='https://github.com/EKHess' target='_blank'><ion-icon name="logo-github"></ion-icon></a></li>
+              <li><a href='https://www.linkedin.com/in/ehess51/' target='_blank'><ion-icon name="logo-linkedin"></ion-icon></a></li>
+              <li><a href='https://www.instagram.com/erichessonline/' target='_blank'><ion-icon name="logo-instagram"></ion-icon></a></li>
+              <li><a href='https://twitter.com/EricHessOnline' target='_blank'><ion-icon name="logo-twitter"></ion-icon></a></li>
+            </ul>
+          </nav>
+        </div>
+        <div className='login-container'>
+          <div className='content-container'>
+            <h1 className='app-name'>Ja<span className='accent-text'>mm</span>ing</h1>
+            <h2 className='app-description'>A web app to create playlists on Spotify</h2>
+            <div className='button-container'>
+              <button className='sign-in-btn' onClick={Spotify.getAuth}>Sign in to Spotify</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   } else {
     return (
       <div className="App">
