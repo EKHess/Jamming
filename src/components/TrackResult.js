@@ -25,7 +25,7 @@ function TrackResult({trackObject, addTrack}) {
                     <p>{trackObject.artist} | {trackObject.album}</p>
                 </div>
             </div>
-            <button onClick={handleAdd}>+</button>
+            <button onClick={handleAdd}><ion-icon name="add-circle-outline"></ion-icon></button>
         </div>
     )
 }

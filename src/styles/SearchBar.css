@@ -1,4 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap');
+
+input {
+    font-family: "Radio Canada", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
 .search-form {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
     display: flex;
     gap: 10px;
+}
+
+.search-input {
+    width: 600px;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+}
+
+.submit {
+    all: unset
+}
+
+.submit:focus {
+    outline: revert;
+}
+
+button {
+    border-radius: 10px;
+    width: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    background-color: #373334;
+}
+
+button:hover {
+    color: #373334;
+    background-color: white;
+    border: 1px solid #373334;
 }

@@ -111,11 +111,13 @@ function App() {
   } else {
     return (
       <div className="App">
-        <h1 className="header-title">Jamming</h1>
-        <h2 className='user-name'>Hello, {userName}</h2>
-        <div className="search-bar">
-          <SearchBar search={search} searchInput={searchInput} setSearchInput={setSearchInput} />
-        </div>
+        <section className='app-header-content'>
+          <h1 className='app-name-header' id='header-title'>Ja<span className='accent-text'>mm</span>ing</h1>
+          <h2 className='user-name-msg'>Hello, <span className='user-name'>{userName}</span></h2>
+          <div className="search-bar">
+            <SearchBar search={search} searchInput={searchInput} setSearchInput={setSearchInput} />
+          </div>
+        </section>
 
         <section className='container'>
           <div>

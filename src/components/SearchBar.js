@@ -19,9 +19,13 @@ function SearchBar(props) {
     return (
         <>
             <form className="search-form">
-                <input name="search" type="text" onChange={handleTextChange}  value={props.searchInput} placeholder="Enter artist name" />
+                <input className="search-input" name="search" type="text" onChange={handleTextChange}  value={props.searchInput} placeholder="Search for your favourite artists" />
                 <br />
-                <input onClick={handleSubmit} type="submit" value="Search"/>
+                <button className="search-btn">
+                    <input className="submit" onClick={handleSubmit} type="submit" value=""/>
+                    <ion-icon name="search-outline"></ion-icon>
+                </button>
+                
             </form>
         </>
     )

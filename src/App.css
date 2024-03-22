@@ -19,7 +19,7 @@ a {
 }
 
 .search-bar {
-  width: 300px;
+  width: 600px;
   margin: 0 auto;
 }
 
@@ -41,8 +41,33 @@ a {
   overflow: auto;
 }
 
-.user-name {
+.App {
+  font-family: "Radio Canada", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+#header-title {
+  margin-top: 25px;
+  font-size: 2.5rem;
   text-align: center;
+}
+
+.user-name-msg {
+  text-align: center;
+  font-family: "Radio Canada", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.user-name {
+  color: #fcf1bc;
+  background-color: #373334;
+
+  padding: 10px;
+  border-radius: 10px;
+
+  font-style: italic;
 }
 
 /* LOGIN PAGE */
@@ -144,6 +169,7 @@ button:focus {
   background-color: black;
   padding: 15px;
   border-radius: 25px;
+  width: auto;
 
   font-size: 1rem;
 
