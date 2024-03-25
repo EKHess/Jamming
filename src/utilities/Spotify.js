@@ -1,7 +1,8 @@
 import { toTrackResultObj } from "./utilities";
 
 const CLIENT_ID = 'a3c530b21aa84e3aa8da93ed77e04ce2';
-const REDIRECT_URI = 'http://localhost:3000/';
+// const REDIRECT_URI = 'http://localhost:3000/';
+const REDIRECT_URI = 'https://ekhess.github.io/Jamming/';
 
 let accessToken;
 let userID;
