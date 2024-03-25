@@ -17,32 +17,28 @@ input {
 .search-input {
     width: 600px;
     height: 45px;
-    border: none;
+    border: 1.5px solid #373334;
     border-radius: 10px;
 }
 
-.submit {
-    all: unset
-}
-
-.submit:focus {
-    outline: revert;
-}
-
-button {
+.submit-btn {
+    all: unset;
+    padding: 0 20px;
     border-radius: 10px;
-    width: 50px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    border: 1.5px solid black;
+    background-color: black;
     color: white;
-    background-color: #373334;
+
+    font-weight: 500;
 }
 
-button:hover {
-    color: #373334;
+.submit-btn:hover {
+    cursor: pointer;
+    color: black;
     background-color: white;
-    border: 1px solid #373334;
+    border: 1.5px solid black;
+}
+
+.submit-btn:focus {
+    outline: revert;
 }

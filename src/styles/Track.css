@@ -12,7 +12,8 @@ ion-icon {
 }
 
 .track-container:hover {
-    background-color: seashell;
+    background-color: black;
+    color: white;
 }
 
 .album-img {

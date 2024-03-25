@@ -17,7 +17,7 @@ function PlaylistTrack({trackObject, removeTrack}) {
                 </div>
             </div>
             
-            <button onClick={handleRemove}>-</button>
+            <button onClick={handleRemove}><ion-icon name="remove-circle-outline"></ion-icon></button>
         </div>
     )
 }

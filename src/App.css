@@ -24,20 +24,49 @@ a {
 }
 
 .container {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   justify-content: space-around;
+}
+
+.scrollable {
+  overflow: auto;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 3px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 5px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background-color: seashell;
+  border-radius: 5px;
+}
+
+.blurred-bkg {
+  backdrop-filter: blur(7px);
+}
+
+.result-header{
+  text-align: center;
 }
 
 .result-tracks {
   width: 350px;
   height: 350px;
   overflow: auto;
+  border-radius: 5px;
 }
 
 .playlist-tracks {
+  margin-top: 20px;
+
   width: 350px;
-  height: 350px;
+  height: 225px;
   overflow: auto;
 }
 
@@ -72,7 +101,7 @@ a {
 
 /* LOGIN PAGE */
 
-.page-container {
+.login-page-container {
   background-image: url('https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-repeat: no-repeat;
   /* background-position: center; */

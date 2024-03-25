@@ -75,6 +75,12 @@ function App() {
       console.log(`Playlist title from input: ${playlistTitle}`)
       Spotify.createPlaylist(playlistTitle)
         .then(playlistID => Spotify.addSongsToPlaylist(playlistID, urisArray))
+
+      // Clear playlist entries once playlist has been sent to Spotify
+      setPlaylist([]);
+      setTopTracks([]);
+      setSearchInput('');
+      setPlaylistTitle('');
     }
   }
 
@@ -82,7 +88,7 @@ function App() {
 
   if (!logged) {
     return (
-      <div className='page-container'>
+      <div className='login-page-container'>
         <div className='nav-container'>
           <nav className='nav-section'>
             <div className='header-info'>
@@ -121,14 +127,14 @@ function App() {
 
         <section className='container'>
           <div>
-            <h2>Results</h2>
-              <div className="result-tracks">
+            <h2 className='results-header'>Results</h2>
+              <div className="result-tracks scrollable">
                 {topTracks.map((track) => <TrackResult addTrack={addTrackToPlaylist} trackObject={track} key={track.id}/>)}
               </div>
           </div>
           <div>
             <PlaylistForm savePlaylist={savePlaylist} playlistTitle={playlistTitle} setPlaylistTitle={setPlaylistTitle} />
-            <div className="playlist-tracks">
+            <div className="playlist-tracks scrollable">
               {playlist.map((track) =><PlaylistTrack trackObject={track} removeTrack={removeTrackFromPlaylist} key={track.id} />)}
             </div>
           </div>

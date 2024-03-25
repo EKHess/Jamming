@@ -16,11 +16,12 @@ function PlaylistForm(props) {
 
     return (
         <>
+            <h1>Create A Playlist</h1>
             <form>
                 <div className="playlist-title">
-                    <input name="playlistName" type="text" onChange={handleChange} value={props.playlistTitle} />
+                    <input className="form-input" name="playlistName" type="text" onChange={handleChange} value={props.playlistTitle} placeholder="Give your playlist a title" />
                     <br />
-                    <input type="submit" value="Save to Spotify" onClick={handleClick}/>
+                    <input className="save-btn" type="submit" value="Save to Spotify" onClick={handleClick}/>
                 </div>
             </form>
         </>
