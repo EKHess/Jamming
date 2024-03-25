@@ -4,7 +4,7 @@ Jamming is a Web App that allows a user to create a playlist on Spotify using a 
 This app taught me how to use 0Auth to authenticate a user, interact with a token-based API using HTTP requests, and create an aesthetically pleasing [React.js](https://react.dev/) application that does a real world task!
 
 ## Try it out!
-You can try out my completed project here: *insert link after deployment*
+Click to try out my [completed Jamming App](https://ekhess.github.io/Jamming/) for yourself!
 
 ## Features
 Features of this app include:
