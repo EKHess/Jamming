@@ -112,6 +112,59 @@ a {
   text-decoration: underline;
 }
 
+footer {
+  margin-top: 30px;
+
+  padding: 20px;
+  background-color: black;
+  color: white;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-content-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-icon {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+#app-name-footer {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.footer-author {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.spotify-logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.spotify-logo-footer {
+  width: 30%;
+  padding: 50px;
+}
+
+.about-me {
+  margin: 20px;
+}
+
 /* LOGIN PAGE */
 
 .login-icon {
@@ -166,6 +219,7 @@ a {
 }
 
 .app-name-header {
+  text-align: center;
   font-family: "Bowlby One SC", sans-serif;
   font-weight: 400;
   font-style: normal;

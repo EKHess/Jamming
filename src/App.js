@@ -1,5 +1,6 @@
 import './styles/reset.css'
 import './App.css';
+import spotifyLogoWhite from './Media/spotify-icons-logos/logos/01_RGB/02_PNG/Spotify_Logo_RGB_White.png';
 import SearchBar from "./components/SearchBar";
 import PlaylistForm from "./components/PlaylistForm";
 import PlaylistTrack from './components/PlaylistTrack';
@@ -140,6 +141,24 @@ function App() {
             </div>
           </div>
         </section>
+
+        <footer>
+          <div className='about-me'>
+            <h1 className='app-name-header' id='app-name-footer'>Ja<span className='accent-text'>mm</span>ing</h1>
+            <h2 className='footer-author'>Made by Eric Hess</h2>
+            <ul className='footer-socials'>
+              <li><a href='https://github.com/EKHess' target='_blank'><span className='footer-icon'><ion-icon name="logo-github"></ion-icon></span></a></li>
+              <li><a href='https://www.linkedin.com/in/ehess51/' target='_blank'><span className='footer-icon'><ion-icon name="logo-linkedin"></ion-icon></span></a></li>
+              <li><a href='https://www.instagram.com/erichessonline/' target='_blank'><span className='footer-icon'><ion-icon name="logo-instagram"></ion-icon></span></a></li>
+              <li><a href='https://twitter.com/EricHessOnline' target='_blank'><span className='footer-icon'><ion-icon name="logo-twitter"></ion-icon></span></a></li>
+            </ul>
+          </div>
+          <div className='spotify-info'>
+            <div className='spotify-logo-container'>
+              <img className='spotify-logo-footer' src={spotifyLogoWhite} alt='Spotify logo white'/>
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }
