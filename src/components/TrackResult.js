@@ -21,11 +21,11 @@ function TrackResult({trackObject, addTrack}) {
             <div className="text-and-image-container">
                 <img src={trackObject.img} className="album-img" alt="Album artwork"/>
                 <div>
-                    <h3>{trackObject.title}</h3>
-                    <p>{trackObject.artist} | {trackObject.album}</p>
+                    <h3><a className="song-title" href={`https://open.spotify.com/track/${trackObject.id}`} target='_blank'>{trackObject.title}</a></h3>
+                    <p className="artist-album-name">{trackObject.artist} | {trackObject.album}</p>
                 </div>
             </div>
-            <button onClick={handleAdd}><ion-icon name="add-circle-outline"></ion-icon></button>
+            <button onClick={handleAdd}><span className="track-icon"><ion-icon name="add-circle-outline"></ion-icon></span></button>
         </div>
     )
 }

@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-ion-icon {
-  font-size: 2rem;
-}
-
 a {
   color: black;
 }
@@ -51,15 +47,16 @@ a {
   backdrop-filter: blur(7px);
 }
 
-.result-header{
+.result-header {
+  font-weight: 800;
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .result-tracks {
   width: 350px;
   height: 350px;
   overflow: auto;
-  border-radius: 5px;
 }
 
 .playlist-tracks {
@@ -87,6 +84,7 @@ a {
   font-family: "Radio Canada", sans-serif;
   font-weight: 300;
   font-size: 1rem;
+  margin-top: 20px;
 }
 
 .user-name {
@@ -99,14 +97,31 @@ a {
   font-style: italic;
 }
 
+.artist-album-name {
+  margin-top: 7px;
+}
+
+.song-title {
+  all: unset;
+}
+
+.song-title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 /* LOGIN PAGE */
+
+.login-icon {
+  font-size: 2rem;
+}
 
 .login-page-container {
   background-image: url('https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-repeat: no-repeat;
   /* background-position: center; */
   background-position: left 5% bottom 50%;
-  /* background-size: cover; */
+  background-size: 150%;
 }
 
 .header-info {
@@ -171,8 +186,8 @@ a {
   font-weight: 400;
   font-style: normal;
 
-  width: 350px;
-  margin-left: 140px;
+  width: auto;
+  margin-left: 130px;
 
   display: flex;
   flex-direction: column;
@@ -181,6 +196,7 @@ a {
 }
 
 .button-container {
+  margin-top: 15px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -217,11 +233,9 @@ button:focus {
 }
 
 .app-description {
-  margin-top: -50px;
-
   font-family: "Radio Canada", sans-serif;
   font-weight: 300;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .accent-text {

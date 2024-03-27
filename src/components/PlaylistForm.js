@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/reset.css';
 import '../styles/PlaylistForm.css';
 
 
@@ -16,7 +17,7 @@ function PlaylistForm(props) {
 
     return (
         <>
-            <h1>Create A Playlist</h1>
+            <h2 className="result-header">Create A Playlist</h2>
             <form>
                 <div className="playlist-title">
                     <input className="form-input" name="playlistName" type="text" onChange={handleChange} value={props.playlistTitle} placeholder="Give your playlist a title" />

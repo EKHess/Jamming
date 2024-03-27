@@ -1,3 +1,4 @@
+import './styles/reset.css'
 import './App.css';
 import SearchBar from "./components/SearchBar";
 import PlaylistForm from "./components/PlaylistForm";
@@ -96,10 +97,10 @@ function App() {
               <p className='author-name'>by Eric Hess</p>
             </div>
             <ul>
-              <li><a href='https://github.com/EKHess' target='_blank'><ion-icon name="logo-github"></ion-icon></a></li>
-              <li><a href='https://www.linkedin.com/in/ehess51/' target='_blank'><ion-icon name="logo-linkedin"></ion-icon></a></li>
-              <li><a href='https://www.instagram.com/erichessonline/' target='_blank'><ion-icon name="logo-instagram"></ion-icon></a></li>
-              <li><a href='https://twitter.com/EricHessOnline' target='_blank'><ion-icon name="logo-twitter"></ion-icon></a></li>
+              <li><a href='https://github.com/EKHess' target='_blank'><span className='login-icon'><ion-icon name="logo-github"></ion-icon></span></a></li>
+              <li><a href='https://www.linkedin.com/in/ehess51/' target='_blank'><span className='login-icon'><ion-icon name="logo-linkedin"></ion-icon></span></a></li>
+              <li><a href='https://www.instagram.com/erichessonline/' target='_blank'><span className='login-icon'><ion-icon name="logo-instagram"></ion-icon></span></a></li>
+              <li><a href='https://twitter.com/EricHessOnline' target='_blank'><span className='login-icon'><ion-icon name="logo-twitter"></ion-icon></span></a></li>
             </ul>
           </nav>
         </div>
@@ -127,7 +128,7 @@ function App() {
 
         <section className='container'>
           <div>
-            <h2 className='results-header'>Results</h2>
+            <h2 className='result-header'>Results</h2>
               <div className="result-tracks scrollable">
                 {topTracks.map((track) => <TrackResult addTrack={addTrackToPlaylist} trackObject={track} key={track.id}/>)}
               </div>
