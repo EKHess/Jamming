@@ -103,6 +103,8 @@ a {
 
 .song-title {
   all: unset;
+  font-weight: 600;
+  font-size: 0.75rem;
 }
 
 .song-title:hover {
