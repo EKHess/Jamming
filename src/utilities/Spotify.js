@@ -3,8 +3,8 @@ import { toTrackResultObj } from "./utilities";
 const CLIENT_ID = 'a3c530b21aa84e3aa8da93ed77e04ce2';
 
 // Make sure to update the Redirect URI on your Spotify Developer Account for your app to this exact link!
-const REDIRECT_URI = 'https://ekhess.github.io/Jamming/';  
-// const REDIRECT_URI = 'http://localhost:3000/';
+// const REDIRECT_URI = 'https://ekhess.github.io/Jamming/';  
+const REDIRECT_URI = 'http://localhost:3000/Jamming/';
 
 let accessToken;
 let userID;

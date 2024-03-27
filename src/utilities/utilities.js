@@ -21,7 +21,7 @@ export function toTrackResultObj(spotifyTrackObj) {
         title: spotifyTrackObj.name,
         artist: spotifyTrackObj.artists[0].name,
         album: spotifyTrackObj.album.name,
-        id: generateId(),
+        id: spotifyTrackObj.id,
         uri: spotifyTrackObj.uri,
         img: spotifyTrackObj.album.images[0].url,
     }
